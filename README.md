@@ -204,7 +204,5 @@ Leitura com nível da água negativo rejeitada com a mensagem do campo inválido
 
 ![6. Testes automatizados](docs/prints/prints-soa/06-testes.png)
 
-## Dados e IA
 
-- **Dados:** todos os dados são **simulados** (nenhum dado pessoal real).
-- **IA como copiloto:** os prompts usados estão registrados em [`prompts.md`](prompts.md).
+
