@@ -4,6 +4,12 @@
 
 API REST que gerencia **bairros**, **sensores** de chuva/nível de água e **leituras**, e calcula o **risco de enchente** de cada bairro. É a camada de backend de sensores do projeto AlertaChuva.
 
+## Integrantes
+
+- Lucca Natario do Vale - RM95688
+- Thiago Feltrin Geraldes - RM555805
+- Danilo Affonso Luz Rios - RM554791
+
 ## Ficha da CitizenTech
 
 | Campo | Resposta |
@@ -17,12 +23,6 @@ API REST que gerencia **bairros**, **sensores** de chuva/nível de água e **lei
 | **Link do repositório** | https://github.com/luccavale/alertachuva-sensores-api |
 | **Indicador de impacto** | Minutos de antecedência do alerta e número de moradores alertados por evento de chuva |
 | **ODS conectados** | **ODS 11** (Cidades e comunidades sustentáveis), **ODS 13** (Ação contra a mudança global do clima) e **ODS 3** (Saúde e bem-estar) |
-
-## Integrantes
-
-- Lucca Natario do Vale - RM95688
-- Thiago Feltrin Geraldes - RM555805
-- Danilo Affonso Luz Rios - RM554791
 
 ## Tecnologias
 
@@ -162,14 +162,47 @@ docs/prints/     evidências da aplicação
 
 ## Evidências da aplicação
 
-Prints em `docs/prints/`:
+Os prints também estão em [`docs/prints/prints-soa`](docs/prints/prints-soa).
 
-1. `01-migracao.png` - `npm run db:migrate` aplicando a migração
-2. `02a-swagger-bairros.png`, `02b-swagger-sensores.png` e `02c-swagger-leituras.png` - Swagger UI com os endpoints de cada recurso
-3. `03-post-leitura.png` - POST /leituras com resposta 201
-4. `04-risco.png` - GET /bairros/{id}/risco com o risco calculado
-5. `05-erro-validacao.png` - leitura inválida retornando 400
-6. `06-testes.png` - `npm test` com todos os testes passando
+### 1. Migração do banco
+
+`npm run db:migrate` aplicando a migração `0000_criar_tabelas_iniciais.sql`.
+
+![1. Migração do banco](docs/prints/prints-soa/01-migracao.png)
+
+### 2. Documentação automática (Swagger)
+
+Swagger UI em `/docs`, com os endpoints de Bairros, Sensores e Leituras.
+
+![2. Documentação automática (Swagger)](docs/prints/prints-soa/02a-swagger-bairros.png)
+
+![2. Documentação automática (Swagger)](docs/prints/prints-soa/02b-swagger-sensores.png)
+
+![2. Documentação automática (Swagger)](docs/prints/prints-soa/02c-swagger-leituras.png)
+
+### 3. Registro de leitura (201)
+
+`POST /api/v1/leituras` com chuva de 85 mm/h e nível da água de 120 cm.
+
+![3. Registro de leitura (201)](docs/prints/prints-soa/03-post-leitura.png)
+
+### 4. Cálculo do risco de enchente (200)
+
+`GET /api/v1/bairros/1/risco` retornando risco **Alto** a partir da leitura mais recente.
+
+![4. Cálculo do risco de enchente (200)](docs/prints/prints-soa/04-risco.png)
+
+### 5. Validação de entrada (400)
+
+Leitura com nível da água negativo rejeitada com a mensagem do campo inválido.
+
+![5. Validação de entrada (400)](docs/prints/prints-soa/05-erro-validacao.png)
+
+### 6. Testes automatizados
+
+`npm test` com os 30 testes passando.
+
+![6. Testes automatizados](docs/prints/prints-soa/06-testes.png)
 
 ## Dados e IA
 
